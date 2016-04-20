@@ -1,6 +1,9 @@
 autocmd BufRead,BufNewFile *.todo set filetype=markdown
+autocmd BufRead,BufNewFile *.todo setlocal foldlevel=9999 foldenable
+autocmd BufWinLeave *.todo mkview
+autocmd BufWinEnter *.todo silent loadview
 
-" from https://github.com/jkramer/vim-checkbox/blob/master/plugin/checkbox.vim
+" based on https://github.com/jkramer/vim-checkbox/blob/master/plugin/checkbox.vim
 " toggle a markdown checkbox
 function! ToggleMarkdownCheckbox()
 	let line = getline('.')
